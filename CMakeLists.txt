@@ -16,10 +16,8 @@ cmake_minimum_required(VERSION 3.20)
 
 cmake_policy(SET CMP0048 NEW)
 
-list(APPEND CMAKE_MODULE_PATH "${ENV_AM_SDK_PATH}/cmake" "${AM_SDK_PATH}/cmake")
-list(APPEND CMAKE_PREFIX_PATH "${ENV_AM_SDK_PATH}/cmake" "${AM_SDK_PATH}/cmake")
-
-set(AM_SDK_PLATFORM ${VCPKG_TARGET_TRIPLET})
+list(APPEND CMAKE_MODULE_PATH "$ENV{AM_SDK_PATH}/cmake" "${AM_SDK_PATH}/cmake")
+list(APPEND CMAKE_PREFIX_PATH "$ENV{AM_SDK_PATH}/cmake" "${AM_SDK_PATH}/cmake")
 
 project(AmplitudeVorbisCodecPlugin)
 
