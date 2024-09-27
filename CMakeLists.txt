@@ -78,7 +78,7 @@ target_link_libraries(${PROJECT_NAME}
 
 # Install
 # ------------------------------------------------------------------------------
-set(AM_LIB_DESTINATION "lib/${VCPKG_TARGET_TRIPLET}")
+set(AM_LIB_DESTINATION "lib/${AM_SDK_PLATFORM}")
 set(AM_INC_DESTINATION "include")
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${AM_LIB_DESTINATION}")
