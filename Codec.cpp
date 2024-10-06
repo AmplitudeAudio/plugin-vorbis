@@ -23,7 +23,7 @@ AM_API_PRIVATE size_t read_callback(void* ptr, size_t size, size_t nmemb, void* 
 AM_API_PRIVATE int seek_callback(void* userdata, ogg_int64_t offset, int whence)
 {
     auto* file = static_cast<File*>(userdata);
-    file->Seek(offset, static_cast<FileSeekOrigin>(whence));
+    file->Seek(offset, static_cast<eFileSeekOrigin>(whence));
     return 0;
 }
 
@@ -55,10 +55,7 @@ bool VorbisCodec::VorbisDecoder::Open(std::shared_ptr<File> file)
     const vorbis_info* info = ov_info(&_vorbis, -1);
     const AmUInt32 framesCount = ov_pcm_total(&_vorbis, -1);
 
-    m_format.SetAll(
-        info->rate, info->channels, 16, framesCount, info->channels * sizeof(AmAudioSample),
-        AM_SAMPLE_FORMAT_FLOAT
-    );
+    m_format.SetAll(info->rate, info->channels, 16, framesCount, info->channels * sizeof(AmAudioSample), eAudioSampleFormat_Float32);
 
     _initialized = true;
 
