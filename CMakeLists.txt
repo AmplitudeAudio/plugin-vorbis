@@ -16,14 +16,16 @@ cmake_minimum_required(VERSION 3.20)
 
 cmake_policy(SET CMP0048 NEW)
 
-if(EXISTS $ENV{AM_SDK_PATH})
+if (DEFINED AM_SDK_PATH)
+    list(APPEND CMAKE_MODULE_PATH "${AM_SDK_PATH}/cmake")
+    list(APPEND CMAKE_PREFIX_PATH "${AM_SDK_PATH}/cmake")
+endif()
+
+if(DEFINED ENV{AM_SDK_PATH})
     string(REPLACE "\\" "/" ENV_AM_SDK_PATH $ENV{AM_SDK_PATH})
     list(APPEND CMAKE_MODULE_PATH "${ENV_AM_SDK_PATH}/cmake")
     list(APPEND CMAKE_PREFIX_PATH "${ENV_AM_SDK_PATH}/cmake")
 endif()
-
-list(APPEND CMAKE_MODULE_PATH "${AM_SDK_PATH}/cmake")
-list(APPEND CMAKE_PREFIX_PATH "${AM_SDK_PATH}/cmake")
 
 project(AmplitudeVorbisCodecPlugin)
 

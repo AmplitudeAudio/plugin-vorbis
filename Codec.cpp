@@ -160,22 +160,22 @@ AmUInt64 VorbisCodec::VorbisEncoder::Write(AudioBuffer* in, AmUInt64 offset, AmU
 
 Codec::Decoder* VorbisCodec::CreateDecoder()
 {
-    return ampoolnew(MemoryPoolKind::Codec, VorbisDecoder, this);
+    return ampoolnew(eMemoryPoolKind_Codec, VorbisDecoder, this);
 }
 
 void VorbisCodec::DestroyDecoder(Decoder* decoder)
 {
-    ampooldelete(MemoryPoolKind::Codec, VorbisDecoder, (VorbisDecoder*)decoder);
+    ampooldelete(eMemoryPoolKind_Codec, VorbisDecoder, (VorbisDecoder*)decoder);
 }
 
 Codec::Encoder* VorbisCodec::CreateEncoder()
 {
-    return ampoolnew(MemoryPoolKind::Codec, VorbisEncoder, this);
+    return ampoolnew(eMemoryPoolKind_Codec, VorbisEncoder, this);
 }
 
 void VorbisCodec::DestroyEncoder(Encoder* encoder)
 {
-    ampooldelete(MemoryPoolKind::Codec, VorbisEncoder, (VorbisEncoder*)encoder);
+    ampooldelete(eMemoryPoolKind_Codec, VorbisEncoder, (VorbisEncoder*)encoder);
 }
 
 bool VorbisCodec::CanHandleFile(std::shared_ptr<File> file) const

@@ -55,14 +55,14 @@ AM_API_PLUGIN bool RegisterPlugin(Engine* engine, MemoryManager* memoryManager)
     s_engine = engine;
     s_memoryManager = memoryManager;
 
-    s_vorbisCodec = ampoolnew(MemoryPoolKind::Engine, VorbisCodec);
+    s_vorbisCodec = ampoolnew(eMemoryPoolKind_Engine, VorbisCodec);
 
     return true;
 }
 
 AM_API_PLUGIN bool UnregisterPlugin()
 {
-    ampooldelete(MemoryPoolKind::Engine, VorbisCodec, s_vorbisCodec);
+    ampooldelete(eMemoryPoolKind_Engine, VorbisCodec, s_vorbisCodec);
     s_vorbisCodec = nullptr;
 
     s_engine = nullptr;
