@@ -13,6 +13,10 @@ tests/Debug/
 tests/Release/
 tests/audio_engine_test.dir/
 
+# XMake files
+.xmake/
+compile_commands.json
+
 # Gnumake
 Makefile
 
@@ -32,8 +36,12 @@ Win32/
 .idea/
 cmake-build-*/
 
+# Zed files
+.zed/
+
 # Misc generated files
 gen/
+sdk/
 .DS_Store
 
 # CLangd cache
